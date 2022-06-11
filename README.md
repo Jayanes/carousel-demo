@@ -1,4 +1,10 @@
-## Available Scripts
+## setup
+
+navigate to the server folder using cd server
+ ### `npm install`
+
+navigate back to root folder /carousel-app
+ ### `npm install`
 
 In the project directory, you can run:
 ### `npm run server-local`
