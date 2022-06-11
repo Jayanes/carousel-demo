@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Carousel from "./components/Carousel";
+import Arrows from "./components/Arrows";
+import "./components/slider.css";
 
 function App() {
+  const [slide, setSlide] = useState(1);
+  const [infinite, setInfinite] = useState(true);
+
+  const prevSlide = () => {
+    if (slide !== 1) {
+      setSlide(slide - 1);
+      setInfinite(true);
+    } else {
+      setInfinite(false);
+    }
+  };
+
+  const nextSlide = () => {
+    if (slide !== 10) {
+      setSlide(slide + 1);
+      setInfinite(true);
+    } else {
+      setInfinite(false);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="slider-container">
+      <Carousel slide={slide} infinite={infinite} />
+      <Arrows prevSlide={() => prevSlide()} nextSlide={() => nextSlide()} />
     </div>
   );
 }
